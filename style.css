@@ -19,10 +19,12 @@ body{
   background-color: black;
   color: aliceblue;
 }
+.Noto{
+  font-family: "Noto Sans JP",sans-serif;
+}
 p{
   font-family: "Noto Sans JP",sans-serif;
 }
-
   *{
     box-sizing:border-box;
   }
@@ -34,7 +36,7 @@ p{
   
   li a {
     display: block;
-    color: black;
+    color: #F2285A;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
