@@ -54,8 +54,9 @@ p{
   .container1{
     
     text-align: center;
-    color: black;
-    background-color: antiquewhite;
+    color: white;
+    background-color: #333;
+    margin: 0;
   }
 
   .container2{
@@ -65,13 +66,6 @@ p{
     background-color: lightgoldenrodyellow;
   }
 
-  .Changa {
-    font-size: 25px;
-    font: bold;
-    font-family: 'Changa One', cursive;
-    text-transform: uppercase;
-    text-size-adjust: auto; 
-  }
 
   .btn{
     border: 2px solid black;
@@ -86,3 +80,151 @@ p{
     background-color: #333;
     color: white;
   }
+
+
+ /* Three columns side by side */
+.column {
+  float: left;
+  width: 50%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+/* Display the columns below each other instead of side by side on small screens */
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+
+/* Add some shadows to create a card effect */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Some left and right padding inside the container */
+.container {
+  padding: 0 16px;
+}
+
+/* Clear floats */
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,700&display=swap");
+
+.all{
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: 'Poppins' , sans-serif;
+
+}
+.buttons{
+  height: 60px;
+  width: 60px;
+  margin: 10px;
+  float: left;
+  cursor: pointer;
+  background: #fff;
+  overflow: hidden;
+  border-radius: 10px;
+  line-height: 60px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 10px 10px 10px rgba(0,0,0,0.1);
+
+}
+
+.buttons .icon{
+  height: 60px;
+  width: 60px;
+  display: inline-block;
+  transition: all 0.3s ease-in-out;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.buttons .icon i{
+  font-size: 25px;
+  transition: all 0.3s ease-in-out;
+  line-height: 60px;
+
+}
+
+.buttons a{
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 60px;
+  margin-left: 10px;
+}
+
+.buttons:nth-child(1):hover .icon{
+  background: #e1306c;
+}
+.buttons:nth-child(2):hover .icon{
+  background:  #1da1f2;
+}
+.buttons:nth-child(3):hover .icon{
+  background: #ff0000;
+}
+
+
+
+
+.buttons:nth-child(1) span{
+  color: #e1306c;
+}
+.buttons:nth-child(2) span{
+  color: #1da1f2;
+}
+.buttons:nth-child(3) span{
+  color:  #ff0000;
+}
+
+
+
+.buttons:hover i{
+  color: #fff;
+}
+
+.buttons:hover{
+  width: 200px;
+}
+
+.footer{padding: 25px;text-align: center;background-color: #333; }
+
