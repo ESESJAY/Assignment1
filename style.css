@@ -1,12 +1,32 @@
-.header{padding: 20px;text-align: center;background-image: url("Image/header.jpeg")}
+.header{padding: 10%;text-align: center;width:100;height:10%;background-size:cover;background-image: url("Image/tokyo-ninja-kawaii.jpg")}
 .header h1{font-size: 40px;}
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: lightpink;
+    display: flex;
+    justify-content: space-evenly;
+ 
+
   }
+
+body{
+    margin: 0;
+}
+.background{
+  background-color: black;
+  color: aliceblue;
+}
+p{
+  font-family: "Noto Sans JP",sans-serif;
+}
+
+  *{
+    box-sizing:border-box;
+  }
+  
   
   li {
     float: left;
@@ -14,16 +34,53 @@ ul {
   
   li a {
     display: block;
-    color: white;
+    color: black;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
   }
   
   li a:hover:not(.active) {
-    background-color: #111;
+    background-color: pink;
   }
   
   .active {
     background-color: darkcyan ;
+  }
+
+
+  .container1{
+    
+    text-align: center;
+    color: black;
+    background-color: antiquewhite;
+  }
+
+  .container2{
+    
+    text-align: center;
+    color: black;
+    background-color: lightgoldenrodyellow;
+  }
+
+  .Changa {
+    font-size: 25px;
+    font: bold;
+    font-family: 'Changa One', cursive;
+    text-transform: uppercase;
+    text-size-adjust: auto; 
+  }
+
+  .btn{
+    border: 2px solid black;
+    background-color: black;
+    color: white;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 50px;
+  }
+  .hover:hover{
+    background-color: #333;
+    color: white;
   }
