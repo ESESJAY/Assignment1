@@ -47,3 +47,15 @@ body{
   .active {
     background-color: darkcyan ;
   }
+
+
+  .container1{
+    
+    text-align: center;
+    color: white;
+    background-color: #333;
+    margin: 0;
+  }
+
+
+  .footer{padding: 25px;text-align: center;background-color: #333; }
