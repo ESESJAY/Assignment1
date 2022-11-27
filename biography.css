@@ -1,0 +1,16 @@
+.body {
+    padding: 60px;
+  }
+  
+details {
+    margin-bottom: 2rem;
+    border: 1px solid #777;
+    padding: 6px;
+    border-radius: 6px;
+}
+
+summary {
+    background-color: grey;
+  }
+
+
