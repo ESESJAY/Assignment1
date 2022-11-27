@@ -1,0 +1,72 @@
+.box-1{
+    background-image: url("Image/Songs_banner.jpg");
+    box-shadow: 0 8px 15px 0 #f2285a;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: auto;
+    height:auto;
+    background-size: cover;  
+}
+
+.box-2{
+    position:absolute;
+    top:85%;
+    left: 10%;  
+    text-size-adjust: auto;  
+}
+
+.flexvideo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+
+}
+
+.flexword{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+
+}
+
+.flexwordleft{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+.wordformat{
+    padding: 0px 90px;
+    border: none;
+    color: white; 
+    position: relative;
+    
+
+}
+.box-3{
+    background-color: #6b434f;;
+    text-decoration: none;
+    display: inline-block;
+    text-size-adjust: auto;
+    position: relative;
+    left:70px;
+    transform: translateX(-50%);
+    
+}
+
+.box-3:hover{
+    background: #f2285a;
+}
+
+
+.box-6{
+    position:relative;
+}
+
+.box-6:hover{
+    zoom: 105%;
+    filter: brightness(1.25);
+    
+}
