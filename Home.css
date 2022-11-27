@@ -1,5 +1,6 @@
 .box-1{
     background-image: url("Image/live_pic2.jpg");
+    box-shadow: 0 8px 15px 0 #f2285a;
     background-repeat: no-repeat;
     background-attachment: fixed;
     width: auto;
