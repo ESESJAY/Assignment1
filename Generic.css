@@ -42,7 +42,10 @@ body{
   }
   
   li a:hover:not(.active) {
-    background-color: pink;
+    color:white;
+    background-color: #F2285A;
+    box-shadow: 0 0 10px  #F2285A, 0 0 40px #F2285A, 0 0 400px #F2285A
+   
   }
   
   .active {

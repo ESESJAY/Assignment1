@@ -13,4 +13,8 @@ summary {
     background-color: grey;
   }
 
-
+  .flexwordleft{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
