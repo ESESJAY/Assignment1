@@ -28,7 +28,8 @@
 }
 
 .box-5:hover{
-    filter: brightness(2);
+    zoom: 105%;
+    
 }
 
 .box-3:hover{
