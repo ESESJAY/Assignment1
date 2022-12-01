@@ -93,6 +93,7 @@
   
   .button:hover {
     background-color: #f2285a;
+    box-shadow: 0 0 5px  #f2285a, 0 0 25px #f2285a, 0 0 200px #f2285a
   }
 
 
