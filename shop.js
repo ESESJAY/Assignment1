@@ -73,11 +73,46 @@ let products =
 },
 
 {
-    name: 'Red Yoasobi Asian Pattern Facetowel',
-    tag: 'redasianpatfacetowel',
+    name: 'Cyan Yoasobi Beach Towel',
+    tag: 'cyanbeachtowel',
+    price: 40,
+    inCart: 0
+},
+
+{
+    name: 'White Yoasobi Beach Towel',
+    tag: 'whitebeachtowel',
+    price: 40,
+    inCart: 0
+},
+
+{
+    name: 'Yellow & Blue Nice To Meet You Facetowel',
+    tag: 'yxbntmyfacetowel',
     price: 15,
     inCart: 0
 },
+
+{
+    name: 'Blue & Brown Nice To Meet You Facetowel',
+    tag: 'blxbrntmyfacetowel',
+    price: 15,
+    inCart: 0
+},
+
+{
+    name: 'Dark Blue Night Play Beach Towel',
+    tag: 'darkbluenpbeachtowel',
+    price: 40,
+    inCart: 0
+},
+
+{
+    name: 'Light Blue Yoasobi Asian Pattern Facetowel',
+    tag: 'lightblueasianpatfacetowel',
+    price: 15,
+    inCart: 0
+}
 ]
 
 for (let i=0; i < carts.length; i++)
