@@ -113,20 +113,60 @@ let products =
     price: 15,
     inCart: 0
 }
-]
+];
 
 for (let i=0; i < carts.length; i++)
 {
     carts[i].addEventListener('click', () =>
     {
-        cartNum();
+        cartNum(products[i]);
     })
 }
-
-function cartNum()
+/* Always display the cart value stored in local storage*/
+function loadcartNum()
 {
+    let productNum = localStorage.getItem('cartNum');
+    if(productNum)
+    {
+        document.querySelector('.cart span').textContent = productNum;
+    }
+}
+
+function cartNum(product)
+{
+
+    console.log("The product clicked is", product);
     let productNum = localStorage.getItem('cartNum');
     /* Convert to integer*/
     productNum = parseInt(productNum);
-    localStorage.setItem('cartNum',1);
+    /* if value exists*/
+    if(productNum )
+    {
+        localStorage.setItem('cartNum', productNum + 1);
+        /* Updating the span value in the cart*/ 
+        document.querySelector('.cart span').textContent = productNum + 1 
+    }
+    /* if no value exist*/
+    else
+    {
+        localStorage.setItem('cartNum', 1);
+        /* Select the span value in the html*/ 
+        document.querySelector('.cart span').textContent =  1 
+    }
+    
+    setItems(product);
 }
+function setItems(product)
+{
+    console.log("Inside of SetItems function");
+    console.log("My product is" , product)
+    product.inCart = 1;
+    let cartItems = 
+    { 
+        [product.tag]: product
+    }
+    /* Change the data to string */
+    localStorage.setItem("productsInCart", JSON.stringify(cartItems));
+}
+
+loadcartNum();
