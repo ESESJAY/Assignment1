@@ -61,5 +61,15 @@ body{
     margin: 0;
   }
 
+  .cart ion-icon{
+    vertical-align: bottom;
+    padding-right: 2px;
+    font-size: 20px;
+  }
+
+  .cart a{
+    text-decoration:none;
+  }
+
 
   .footer{padding: 25px;text-align: center;background-color: #333; }
