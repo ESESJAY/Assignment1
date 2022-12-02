@@ -1,0 +1,93 @@
+
+
+/* Three columns side by side */
+.column {
+    float: left;
+    width: 25%;
+    margin-bottom: 8px;
+    padding: 0 4px;
+  }
+  
+
+  
+  /* Add some shadows to create a card effect */
+  .card {
+    box-shadow: 0 4px 8px 0 #f2285a
+  }
+  
+  /* Some left and right padding inside the container */
+  .container {
+    padding: 0 16px;
+  }
+  
+  /* Clear floats */
+  .container::after, .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  .title {
+    color: grey;
+  }
+  
+  .button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #6b434f;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+   
+
+  }
+  
+  .button:hover {
+    background-color: #f2285a;
+    box-shadow: 0 0 5px  #f2285a, 0 0 25px #f2285a, 0 0 200px #f2285a
+  }
+
+
+  * {
+    box-sizing: border-box;
+  }
+  
+  .columns {
+    float: left;
+    width: 25%;
+    padding: 3px;
+    box-shadow: 0 2px 4px 0 #f2285a
+  }
+  
+  /* Clearfix (clear floats) */
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  .leagues {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    float: left;
+    overflow: hidden;
+    max-height: 160px;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    
+    }
+
+    .containers {
+        display: flex;
+        justify-content: center;
+        }
+        
+        .leagues {
+        height: 200px;
+        width: auto;
+        }
