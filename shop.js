@@ -4,112 +4,112 @@ let products =
 [
 {
     name: 'Cyan Night Play Tshirt',
-    tag: 'Shirt-1',
+    tag: 'cyannightplaytshirt',
     price: 35,
     inCart: 0
 },
   
 {
     name: 'Black Night Play Tshirt',
-    tag: 'shirt-2',
+    tag: 'blacknightplaytshirt',
     price: 35,
     inCart: 0
 },
 
 {
     name: 'Ochre YOA Tshirt',
-    tag: 'shirt-3',
+    tag: 'ochreyoatshirt',
     price: 35,
     inCart: 0
 },
 
 {
     name: 'White YOA Tshirt',
-    tag: 'shirt-4',
+    tag: 'whiteyoatshirt',
     price: 35,
     inCart: 0
 },
 
 {
     name: 'Greige Tsubame Tshirt',
-    tag: 'shirt-5',
+    tag: 'greigetsubametshirt',
     price: 35,
     inCart: 0
 },
 
 {
     name: 'Orange Love Letter Pullover',
-    tag: 'shirt-6',
+    tag: 'orangeloveletterpullover',
     price: 60,
     inCart: 0
 },
 
 {
     name: 'Light Black Nice To Meet You Hoodie',
-    tag: 'shirt-7',
+    tag: 'lightblacknicetomeetyouhoodie',
     price: 75,
     inCart: 0
 },
 
 {
     name: 'Greige Nice To Meet You Hoodie',
-    tag: 'shirt-8',
+    tag: 'greigenicetomeetyouhoodie',
     price: 75,
     inCart: 0
 },
 
 {
     name: 'Red Yoasobi Asian Pattern Facetowel',
-    tag: 'towel-1',
+    tag: 'redyoasobiasianpatternfacetowel',
     price: 15,
     inCart: 0
 },
 
 {
     name: 'Blue Yoasobi Asian Pattern Facetowel',
-    tag: 'towel-2',
+    tag: 'blueyoasobiasianpatternfacetowel',
     price: 15,
     inCart: 0
 },
 
 {
     name: 'Cyan Yoasobi Beach Towel',
-    tag: 'towel-3',
+    tag: 'cyanyoasobibeachtowel',
     price: 40,
     inCart: 0
 },
 
 {
     name: 'White Yoasobi Beach Towel',
-    tag: 'towel-4',
+    tag: 'whiteyoasobibeachtowel',
     price: 40,
     inCart: 0
 },
 
 {
     name: 'Yellow & Blue Nice To Meet You Facetowel',
-    tag: 'towel-5',
+    tag: 'yellow&bluenicetomeetyoufacetowel',
     price: 15,
     inCart: 0
 },
 
 {
     name: 'Blue & Brown Nice To Meet You Facetowel',
-    tag: 'towel-6',
+    tag: 'blue&brownnicetomeetyoufacetowel',
     price: 15,
     inCart: 0
 },
 
 {
     name: 'Dark Blue Night Play Beach Towel',
-    tag: 'towel-7',
+    tag: 'darkbluenightplaybeachtowel',
     price: 40,
     inCart: 0
 },
 
 {
     name: 'Light Blue Yoasobi Asian Pattern Facetowel',
-    tag: 'towel-8',
+    tag: 'lightblueyoasobiasianpatternfacetowel',
     price: 15,
     inCart: 0
 }
@@ -260,6 +260,39 @@ function displayCart()
                 </h4>
             `;
     
+    }
+    /* if remove button is clicked */
+    deleteButtons();
+}
+
+function deleteButtons()
+{
+    /* locate the cross button*/
+    let deleteButtons = document.querySelectorAll('.product ion-icon');
+    let productName;
+    let cartNum = localStorage.getItem('cartNum');
+    let productNumbers = localStorage.getItem('cartNumbers');
+    /* to access each item data */
+    let cartItems = localStorage.getItem('productsInCart');
+    cartItems = JSON.parse(cartItems);
+    let cartCost = localStorage.getItem('totalCost');
+    for(let i=0; i < deleteButtons.length; i++)
+    {
+        deleteButtons[i].addEventListener('click', () =>
+        {
+            /* go up to the parent division and select the name of the product name */
+            /* .trim remove all the negative space */
+            productName = deleteButtons[i].parentElement.textContent.trim().toLowerCase().replace(/ /g , '');
+            localStorage.setItem('cartNum', cartNum -= cartItems[productName].inCart );
+            /* calculate the total price for the column we are removing */
+            localStorage.setItem('totalCost', cartCost - ( cartItems[productName].price * cartItems[productName].inCart))
+
+            delete cartItems[productName];
+            localStorage.setItem('productsInCart', JSON.stringify(cartItems));
+            /* refreshes the page */
+            displayCart();
+            loadcartNum();
+        });
     }
 }
 
