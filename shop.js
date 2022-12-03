@@ -133,27 +133,32 @@ function loadcartNum()
     }
 }
 
-function cartNum(product)
+function cartNum(product, action)
 {
 
     console.log("The product clicked is", product);
     let productNum = localStorage.getItem('cartNum');
     /* Convert to integer*/
     productNum = parseInt(productNum);
-    /* if value exists*/
-    if(productNum )
+    let cartItems = localStorage.getItem('productsInCart');
+    cartItems = JSON.parse(cartItems);
+
+    if(action == "decrease")
     {
-        localStorage.setItem('cartNum', productNum + 1);
-        /* Updating the span value in the cart*/ 
-        document.querySelector('.cart span').textContent = productNum + 1 
+        localStorage.setItem('cartNum' , productNum - 1);
+        document.querySelector('.cart span').textContent = productNum - 1;
+    } 
+    else if( productNum)
+    {
+        localStorage.setItem("cartNum", productNum + 1);
+        document.querySelector('.cart span').textContent = productNum + 1;
     }
-    /* if no value exist*/
     else
     {
         localStorage.setItem('cartNum', 1);
-        /* Select the span value in the html*/ 
-        document.querySelector('.cart span').textContent =  1 
+        document.querySelector('.cart span').textContent = 1;
     }
+    
     
     setItems(product);
 }
@@ -188,13 +193,19 @@ function setItems(product)
 }
 
 /* Total cost function */
-function totalCost(product)
+function totalCost(product, action)
 {
     //console.log("The product price is" , product.price);
     let cartCost = localStorage.getItem('totalCost');
+
     console.log("My cartCost is" , cartCost);
+    if(action == "decrease")
+    {
+      cartCost = parseInt(cartCost);
+      localStorage.setItem('totalCost', cartCost - product.price);
+    }
     
-    if(cartCost != null)
+    else if(cartCost != null)
     {
         /*Convert to number to addition */
         cartCost = parseInt(cartCost);
@@ -314,10 +325,13 @@ function manageQuantity()
             /* parent element to move up to quantity, previous element siblings to move to product and select the name */
             currentProduct =  decreaseButtons[i].parentElement.previousElementSibling.previousElementSibling.querySelector('span').textContent.toLowerCase().replace(/ /g, '').trim();
             console.log(currentProduct);
+            /* run a checker to make sure when quantity cannot decrease when quantity is 1 */
             if(cartItems[currentProduct].inCart > 1)
             {
             /* decreasing the value of incart */
             cartItems[currentProduct].inCart -= 1;
+            cartNum(cartItems[currentProduct], "decrease");
+            totalCost(cartItems[currentProduct], "decrease")
             localStorage.setItem('productsInCart' , JSON.stringify(cartItems));
             displayCart();
             }
@@ -328,6 +342,21 @@ function manageQuantity()
         increaseButtons[i].addEventListener('click', () =>
         {
             console.log("increase button");
+            currentQuantity = increaseButtons[i].parentElement.querySelector('span').textContent;
+            console.log(currentQuantity);
+            /* parent element to move up to quantity, previous element siblings to move to product and select the name */
+            currentProduct =  increaseButtons[i].parentElement.previousElementSibling.previousElementSibling.querySelector('span').textContent.toLowerCase().replace(/ /g, '').trim();
+            console.log(currentProduct);
+            /* run a checker to make sure when quantity cannot decrease when quantity is 1 */
+           
+            /* decreasing the value of incart */
+            cartItems[currentProduct].inCart += 1;
+            /* if statement at the top checks if there is product inside if there is it will allow addition */
+            cartNum(cartItems[currentProduct]);
+            totalCost(cartItems[currentProduct])
+            localStorage.setItem('productsInCart' , JSON.stringify(cartItems));
+            displayCart();
+            
         });
     }
 }
