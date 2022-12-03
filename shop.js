@@ -212,10 +212,11 @@ function displayCart()
     let cartItems = localStorage.getItem("productsInCart");
     cartItems = JSON.parse(cartItems);
     let productContainer = document.querySelector(".products");
+    let cartCost = localStorage.getItem('totalCost');
     /* Check if there is any values */
     if(cartItems && productContainer)
     {
-        productContainer.innerHTML = '';
+         productContainer.innerHTML = '';
         /* Check values in key */
         Object.values(cartItems).map(item => {
             /* include += to ensure it not being overwritten */
@@ -225,17 +226,40 @@ function displayCart()
                 color:blue;
                 margin-left: 5px;
                 margin-right: 5px;"></ion-icon>
-                <img src="/Image/${item.tag}.jpg" style="width:200px;height:150px;">
+                <img src="/Image/${item.tag}.jpg" style="width:150px;height:150px;">
                 <span>${item.name}</span>
             </div>
-            <div class="price">${item.price}</div>
+            <div style="width: 15%;
+            border-bottom: 2px solid #f2285a;
+            display: flex;
+            align-items: center;">$${item.price}</div>
             <div class="quantity">
-                <ion-icon class="decrease" name="remove-circle"></ion-icon>
+                <ion-icon class="decrease" name="remove-circle" style="font-size:25px;
+                color:blue;
+                margin-left: 5px;
+                margin-right: 5px;"></ion-icon>
                 <span>${item.inCart}</span>
-                <ion-icon class="increase" name="add-circle"></ion-icon>
+                <ion-icon class="increase" name="add-circle" style="font-size:25px;
+                color:blue;
+                margin-left: 5px;
+                margin-right: 5px;"></ion-icon>
+            </div>
+            <div class="total">
+                $${item.inCart * item.price}.00
             </div>
             `
         });
+
+        productContainer.innerHTML += `
+            <div class="basketTotalContainer">
+                <h4 class="basketTotalTitle">
+                    Basket Total
+                </h4>
+                <h4 class="basketTotal">
+                 $${cartCost},00
+                </h4>
+            `;
+    
     }
 }
 

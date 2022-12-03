@@ -1,33 +1,40 @@
 
 .products-container
 {
-    max-width: 650px;
+    max-width: 800px;
     justify-content: space-around;
     /*Center of the page */
     margin: 0 auto;
     margin-top: 50px;
+    flex-direction: row;
 
 }
 
 .product-header
 {
     width:100%;
-    max-width: 650px;
-    height:50px;
+    max-width: 800px;
     display:flex;
     justify-content: flex-start;
-    border-bottom: 4px solid #f2285a;
+    flex-direction: row;
     margin: 0 auto;
+    border-bottom: #f2285a;
 }
 
 .product-title
 {
     width:45%;
+    border-bottom: 2px solid #f2285a;
+    display: flex;
+    align-items: center;
 }
 
 .price
 {
     width: 15%;
+    border-bottom: 2px solid #f2285a;
+    display: flex;
+    align-items: center;
     
     
 }
@@ -35,6 +42,9 @@
 .quantity
 {
     width: 30%;
+    border-bottom: 2px solid #f2285a;
+    display: flex;
+    align-items: center;
     
     
 }
@@ -42,7 +52,9 @@
 .total
 {
     width:10%;
-   
+    border-bottom: 2px solid #f2285a;
+    display: flex;
+    align-items: center;
    
 }
 
@@ -53,5 +65,31 @@
     justify-content:space-around;
     align-items: center;
     padding: 10px 0;
-    
+    border-bottom: 2px solid #f2285a;
+  
+}
+
+.products{
+    width:100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.products img{
+    width:75px;
+}
+
+.basketTotalContainer{
+    display: flex;
+    justify-content: flex-end;
+    width:100%;
+    padding: 10px 0;
+}
+
+.basketTotalTitle{
+    width:30%;
+}
+
+.basketTotal{
+    width:10%;
 }
