@@ -1,0 +1,7 @@
+.products-container{
+    max-width: 650px;
+    justify-content: space-around;
+    /*Center of the page */
+    margin: 0 auto;
+    margin-top: 50px;
+}

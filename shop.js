@@ -120,6 +120,7 @@ for (let i=0; i < carts.length; i++)
     carts[i].addEventListener('click', () =>
     {
         cartNum(products[i]);
+        totalCost(products[i]);
     })
 }
 /* Always display the cart value stored in local storage*/
@@ -158,15 +159,53 @@ function cartNum(product)
 }
 function setItems(product)
 {
-    console.log("Inside of SetItems function");
-    console.log("My product is" , product)
-    product.inCart = 1;
-    let cartItems = 
-    { 
+    let cartItems = localStorage.getItem('productsInCart');
+    cartItems = JSON.parse(cartItems)
+    console.log("My cartItems are" , cartItems);
+    /* Check if anything exists inside*/
+    if(cartItems != null)
+    {
+        /* check if the item exist in the local storage */
+        if(cartItems[product.tag] == undefined)
+        {
+            /* update cart item from before and add additional item */
+            cartItems = {
+                ...cartItems,[product.tag] : product
+            }
+        }
+        cartItems[product.tag].inCart += 1;
+    }
+    else
+    {
+        product.inCart = 1;
+    cartItems = { 
         [product.tag]: product
     }
+    }
+    
     /* Change the data to string */
     localStorage.setItem("productsInCart", JSON.stringify(cartItems));
+}
+
+/* Total cost function */
+function totalCost(product)
+{
+    //console.log("The product price is" , product.price);
+    let cartCost = localStorage.getItem('totalCost');
+    console.log("My cartCost is" , cartCost);
+    
+    if(cartCost != null)
+    {
+        /*Convert to number to addition */
+        cartCost = parseInt(cartCost);
+        /* add on new item price to the existing total price */
+        localStorage.setItem("totalCost" , cartCost + product.price);
+    }
+    else
+    {
+        localStorage.setItem("totalCost" , product.price);  
+    }
+    
 }
 
 loadcartNum();
