@@ -1,3 +1,4 @@
+
 .products-container
 {
     max-width: 650px;
@@ -5,14 +6,52 @@
     /*Center of the page */
     margin: 0 auto;
     margin-top: 50px;
+
 }
 
 .product-header
 {
     width:100%;
     max-width: 650px;
+    height:50px;
     display:flex;
     justify-content: flex-start;
     border-bottom: 4px solid #f2285a;
-    margin: 0 auto
+    margin: 0 auto;
+}
+
+.product-title
+{
+    width:45%;
+}
+
+.price
+{
+    width: 15%;
+    
+    
+}
+
+.quantity
+{
+    width: 30%;
+    
+    
+}
+
+.total
+{
+    width:10%;
+   
+   
+}
+
+.product
+{
+    width: 45%;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    padding: 10px 0;
+    
 }

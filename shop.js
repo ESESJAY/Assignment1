@@ -4,112 +4,112 @@ let products =
 [
 {
     name: 'Cyan Night Play Tshirt',
-    tag: 'cyannptshirt',
+    tag: 'Shirt-1',
     price: 35,
     inCart: 0
 },
   
 {
     name: 'Black Night Play Tshirt',
-    tag: 'blacknptshirt',
+    tag: 'shirt-2',
     price: 35,
     inCart: 0
 },
 
 {
     name: 'Ochre YOA Tshirt',
-    tag: 'ochreyoashirt',
+    tag: 'shirt-3',
     price: 35,
     inCart: 0
 },
 
 {
     name: 'White YOA Tshirt',
-    tag: 'whiteyoashirt',
+    tag: 'shirt-4',
     price: 35,
     inCart: 0
 },
 
 {
     name: 'Greige Tsubame Tshirt',
-    tag: 'greigetsushirt',
+    tag: 'shirt-5',
     price: 35,
     inCart: 0
 },
 
 {
     name: 'Orange Love Letter Pullover',
-    tag: 'orangepullover',
+    tag: 'shirt-6',
     price: 60,
     inCart: 0
 },
 
 {
     name: 'Light Black Nice To Meet You Hoodie',
-    tag: 'lightblackhoodie',
+    tag: 'shirt-7',
     price: 75,
     inCart: 0
 },
 
 {
     name: 'Greige Nice To Meet You Hoodie',
-    tag: 'greigeblackhoodie',
+    tag: 'shirt-8',
     price: 75,
     inCart: 0
 },
 
 {
     name: 'Red Yoasobi Asian Pattern Facetowel',
-    tag: 'redasianpatfacetowel',
+    tag: 'towel-1',
     price: 15,
     inCart: 0
 },
 
 {
     name: 'Blue Yoasobi Asian Pattern Facetowel',
-    tag: 'blueasianpatfacetowel',
+    tag: 'towel-2',
     price: 15,
     inCart: 0
 },
 
 {
     name: 'Cyan Yoasobi Beach Towel',
-    tag: 'cyanbeachtowel',
+    tag: 'towel-3',
     price: 40,
     inCart: 0
 },
 
 {
     name: 'White Yoasobi Beach Towel',
-    tag: 'whitebeachtowel',
+    tag: 'towel-4',
     price: 40,
     inCart: 0
 },
 
 {
     name: 'Yellow & Blue Nice To Meet You Facetowel',
-    tag: 'yxbntmyfacetowel',
+    tag: 'towel-5',
     price: 15,
     inCart: 0
 },
 
 {
     name: 'Blue & Brown Nice To Meet You Facetowel',
-    tag: 'blxbrntmyfacetowel',
+    tag: 'towel-6',
     price: 15,
     inCart: 0
 },
 
 {
     name: 'Dark Blue Night Play Beach Towel',
-    tag: 'darkbluenpbeachtowel',
+    tag: 'towel-7',
     price: 40,
     inCart: 0
 },
 
 {
     name: 'Light Blue Yoasobi Asian Pattern Facetowel',
-    tag: 'lightblueasianpatfacetowel',
+    tag: 'towel-8',
     price: 15,
     inCart: 0
 }
@@ -207,5 +207,37 @@ function totalCost(product)
     }
     
 }
+function displayCart()
+{
+    let cartItems = localStorage.getItem("productsInCart");
+    cartItems = JSON.parse(cartItems);
+    let productContainer = document.querySelector(".products");
+    /* Check if there is any values */
+    if(cartItems && productContainer)
+    {
+        productContainer.innerHTML = '';
+        /* Check values in key */
+        Object.values(cartItems).map(item => {
+            /* include += to ensure it not being overwritten */
+            productContainer.innerHTML += `
+            <div class="product">
+                <ion-icon name="close-circle" style="font-size:25px;
+                color:blue;
+                margin-left: 5px;
+                margin-right: 5px;"></ion-icon>
+                <img src="/Image/${item.tag}.jpg" style="width:200px;height:150px;">
+                <span>${item.name}</span>
+            </div>
+            <div class="price">${item.price}</div>
+            <div class="quantity">
+                <ion-icon class="decrease" name="remove-circle"></ion-icon>
+                <span>${item.inCart}</span>
+                <ion-icon class="increase" name="add-circle"></ion-icon>
+            </div>
+            `
+        });
+    }
+}
 
 loadcartNum();
+displayCart();
