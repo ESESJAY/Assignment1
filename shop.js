@@ -263,15 +263,15 @@ function displayCart()
     }
     /* if remove button is clicked */
     deleteButtons();
+
+    manageQuantity();
 }
 
 function deleteButtons()
 {
     /* locate the cross button*/
     let deleteButtons = document.querySelectorAll('.product ion-icon');
-    let productName;
     let cartNum = localStorage.getItem('cartNum');
-    let productNumbers = localStorage.getItem('cartNumbers');
     /* to access each item data */
     let cartItems = localStorage.getItem('productsInCart');
     cartItems = JSON.parse(cartItems);
@@ -293,6 +293,35 @@ function deleteButtons()
             displayCart();
             loadcartNum();
         });
+    }
+}
+
+function manageQuantity()
+{
+    let decreaseButtons = document.querySelectorAll('.decrease');
+    let increaseButtons = document.querySelectorAll('.increase');
+    let cartItems = localStorage.getItem('productsInCart');
+    let currentQuantity = 0;
+    let currentProduct = "";
+    cartItems = JSON.parse(cartItems);
+    for(let i=0; i < decreaseButtons.length; i++)
+    {
+        decreaseButtons[i].addEventListener('click', () =>
+        {   
+            /* parentelement to move on up the division into quantity and select the value in span */
+            currentQuantity = decreaseButtons[i].parentElement.querySelector('span').textContent;
+            console.log(currentQuantity);
+            /* parent element to move up to quantity, previous element siblings to move to product and select the name */
+            currentProduct =  decreaseButtons[i].parentElement.previousElementSibling.previousElementSibling.querySelector('span').textContent.toLowerCase().replace(/ /g, '').trim();
+            console.log(currentProduct);
+        })
+    }
+    for(let i=0; i < increaseButtons.length; i++)
+    {
+        increaseButtons[i].addEventListener('click', () =>
+        {
+            console.log("increase button");
+        })
     }
 }
 
