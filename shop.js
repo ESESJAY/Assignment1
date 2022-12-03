@@ -306,7 +306,7 @@ function deleteButtons()
         });
     }
 }
-
+/* increase or decrease */
 function manageQuantity()
 {
     let decreaseButtons = document.querySelectorAll('.decrease');
