@@ -314,14 +314,21 @@ function manageQuantity()
             /* parent element to move up to quantity, previous element siblings to move to product and select the name */
             currentProduct =  decreaseButtons[i].parentElement.previousElementSibling.previousElementSibling.querySelector('span').textContent.toLowerCase().replace(/ /g, '').trim();
             console.log(currentProduct);
-        })
+            if(cartItems[currentProduct].inCart > 1)
+            {
+            /* decreasing the value of incart */
+            cartItems[currentProduct].inCart -= 1;
+            localStorage.setItem('productsInCart' , JSON.stringify(cartItems));
+            displayCart();
+            }
+        });
     }
     for(let i=0; i < increaseButtons.length; i++)
     {
         increaseButtons[i].addEventListener('click', () =>
         {
             console.log("increase button");
-        })
+        });
     }
 }
 
