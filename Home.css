@@ -148,3 +148,49 @@ h2{
     color: white;
 }
 
+
+
+
+
+@media screen and (max-width:1000px)
+{
+  .column {
+    float: left;
+    width: 100%;
+    margin-bottom: 16px;
+    padding: 0 8px;
+  }
+  .button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 50px;
+    color: white;
+    font-size:larger;
+    background-color: #6b434f;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+   
+
+  }
+  
+  .button:hover {
+    background-color: #f2285a;
+    box-shadow: 0 0 5px  #f2285a, 0 0 25px #f2285a, 0 0 200px #f2285a
+  }
+  .columns {
+    float: left;
+    width: 33.33%;
+    padding: 3px;
+    box-shadow: 0 2px 4px 0 #f2285a
+  }
+  
+  /* Clearfix (clear floats) */
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+}
