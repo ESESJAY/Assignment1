@@ -25,6 +25,7 @@ FEATURES:
 2. In my cart page the cross button removes the column when the user clicks on it.
 3. In my cart page the minus button decreases the quantity by one whenever the user clicks but it will not be clickable when the quantity is at one.
 4. In my cart page the plus button increases the quantity by one whenever the user clicks.
+5. In my Shop page the add to cart button allow the users to add the item to the cart webpage, and the cart quantity on the most right side of the navigation bar will increase by 1 quantity.
 
 TESTING:
 
