@@ -267,7 +267,7 @@ function displayCart()
                     Basket Total
                 </h4>
                 <h4 class="basketTotal">
-                 $${cartCost},00
+                 $${cartCost}.00
                 </h4>
             `;
     
